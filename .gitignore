@@ -3,3 +3,6 @@
 
 # JetBrains製IDEの設定ディレクトリ
 /.idea
+
+#vscodeの設定
+.vscode/
