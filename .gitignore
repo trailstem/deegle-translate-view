@@ -33,3 +33,9 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# JetBrains製IDEの設定ディレクトリ
+/.idea
+
+# VSCodeの設定
+.vscode/
