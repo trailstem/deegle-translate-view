@@ -1,1 +1,0 @@
-# deegle-translate-view
