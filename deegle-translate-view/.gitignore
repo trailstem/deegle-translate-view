@@ -1,3 +1,5 @@
 #.DS_Storeファイル
 .DS_Store
 
+# JetBrains製IDEの設定ディレクトリ
+/.idea
