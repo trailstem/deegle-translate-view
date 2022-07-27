@@ -15,16 +15,11 @@ const Home: NextPage = () => {
 
       <main>
       <h1>Deegle</h1>
-            <div className={styles.container}>
-            <table>
-  <thead>
-    <tr><th>Google翻訳</th><th>deepl</th></tr>
-  </thead>
-  <tbody>
-    <tr><td><textarea name="" id=""></textarea></td><td><textarea name="" id=""></textarea></td></tr>
-  </tbody>
-</table>
-        </div>
+
+      <div><textarea></textarea></div>
+      <div><textarea></textarea></div>
+      <div><textarea></textarea></div>
+      <div><textarea></textarea></div>
       </main>
 
       <footer className={styles.footer}>
