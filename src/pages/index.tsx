@@ -2,8 +2,41 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome" ;
 import {faThumbsUp} from  "@fortawesome/free-regular-svg-icons";
+import { useState } from 'react';
 
 const Home: NextPage = () => {
+
+  const initialValue : any = "";
+
+  //利用者がGoogle翻訳を使用して変換する際の値
+  const [googleText,ConvertWithGoogle] = useState<string>(initialValue);
+
+  //利用者がdeepleを使用して変換する際の値
+  const [deeplText,ConvertWithDeepl] = useState<string>(initialValue);
+
+
+    //利用者がGoogle翻訳を使用して変換した後の値
+    const [aftTranGoogle,effectGoogle] = useState<string>(initialValue);
+
+     //利用者がDeepl翻訳を使用して変換した後の値
+    const [aftTranDeepl,effectDeepl] = useState<string>(initialValue);
+ 
+  const TranslateGoogle = () => {
+    alert('Google翻訳を使用して翻訳します');
+  }
+
+  const TranslateDeeple = () => {
+    alert('Deepl翻訳を使用して翻訳します');
+  }
+  
+  const GoodGoogle = () => {
+    alert('Google翻訳を高く評価しました。');
+  }
+  const GoodDeeple = () => {
+    alert('Deppleを高く評価しました。');
+  
+  }
+
   return (
     
     <div className="flex-container justify-center">
@@ -20,24 +53,33 @@ const Home: NextPage = () => {
 
           <div className='m-24'>
             <div className=''>
-              <textarea className='flex border-2 w-auto  h-40 border-rose-500 rounded-lg'></textarea>
+              <textarea onChange={TranslateGoogle} className='flex border-2 w-auto  h-40 border-rose-500 rounded-lg'>
+                {googleText}
+              </textarea>
             </div>
             <div className='pt-6'>
-              <textarea className='border-2 w-auto  h-40 border-rose-500 rounded-lg '></textarea>
+              <textarea className=' flex border-2 w-auto  h-40 border-emerald-700 rounded-lg '>
+                {aftTranGoogle}
+              </textarea>
             </div>
+            <button className='fa-2x' onClick={GoodGoogle}><FontAwesomeIcon icon={faThumbsUp} className="w-48" color='red'/></button>
           </div>
           
           <div className='m-24 '>
               <div className='flex space-x-96 '>
-                <textarea className='border-2 w-auto  h-40 border-violet-700 rounded-lg '></textarea>
+                <textarea onChange={TranslateDeeple} className='border-2 w-auto  h-40 border-violet-700 rounded-lg '>
+                  {deeplText}
+                </textarea>
               </div>
               <div className='pt-6'>
-                <textarea className='border-2	w-auto 	h-40 border-violet-700 rounded-lg '></textarea>
+                <textarea className=' flex border-2	w-auto 	h-40 border-violet-700 rounded-lg '>
+                  {aftTranDeepl}
+                </textarea>
               </div>
+              <button className='fa-2x' onClick={GoodDeeple}><FontAwesomeIcon icon={faThumbsUp} className="flex w-48"  color='red'/></button>
+        
           </div>
         </div>
-        <FontAwesomeIcon icon={faThumbsUp} />
-        <FontAwesomeIcon icon={faThumbsUp} />
       </div>
       </main>
       
@@ -46,5 +88,4 @@ const Home: NextPage = () => {
     </div>
   )
 }
-
 export default Home
