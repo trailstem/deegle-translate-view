@@ -2,10 +2,9 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome" ;
 import {faThumbsUp} from  "@fortawesome/free-regular-svg-icons";
-import  {useState}  from 'react';
-import ConvertWithGoogle, { UserTranslationText } from './components/UserTranslationText';
+import {useState}  from 'react';
+import UserTranslationText from './components/UserTranslationText';
 import Header from './components/Header';
-import { LOADIPHLPAPI } from 'dns';
 import LanguageSwichingTab from './components/LanguageSwichingTab';
 import Footer from './components/Footer';
 
