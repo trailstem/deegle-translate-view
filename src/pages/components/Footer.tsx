@@ -1,13 +1,13 @@
 import React from 'react';
-
-const Footer = () => {
+import { memo } from "react"
+const Footer = memo((): JSX.Element => {
   return (
-    <footer className="absolute inset-x-0 bottom-0">
-      <div className="text-center p-6 bg-gray-200 min-h-full">
-        <span>&copy; 2022 Deegle:</span>
-        <a className="text-gray-600 font-semibold" href="">Google翻訳 DeepL比較アプリ</a>
+    <footer className="fixed bottom-0 sm:flex sm:items-center  bg-gray-200 w-full">
+      <div className="font-semibold text-center p-2">
+        <span>&copy; 2022 Deegle: </span>
+        <a className="" href="">Google翻訳 DeepL比較アプリ</a>
       </div>
     </footer>
   );
-}
+})
 export default Footer;
