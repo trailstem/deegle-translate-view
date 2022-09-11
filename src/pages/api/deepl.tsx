@@ -1,16 +1,15 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-export const DeepLAPI = (e : { target: { value: string; }; }, setAftTranDeepl: any) : void => {
+export const DeepLAPI = (inputText: any, setAftTranDeepl: any) : void => {
 
   const API_Key = process.env.NEXT_PUBLIC_DeepL_API_KEY;
   const API_URL = "https://api-free.deepl.com/v2/translate";
-  console.log(API_Key)
 
   let content = encodeURI(
     "auth_key=" +
       API_Key +
       "&text=" +
-      e.target.value +
+      inputText +
       "&source_lang=JA&target_lang=EN"
   );
 
