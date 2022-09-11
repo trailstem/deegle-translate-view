@@ -13,9 +13,11 @@ const {} = props;
   }
   
   return (
-<div>
-<FontAwesomeIcon icon={faCopy} onClick={copyToClipboard}/>
-</div>
+    <>
+      <div>
+        <FontAwesomeIcon icon={faCopy} onClick={copyToClipboard}/>
+      </div>
+    </>
   );
 })
 
