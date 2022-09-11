@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 import axios from "axios"
 
-export const GoogleAPI = (e : { target: { value: string; }; }, setAftTranGoogle: any) : void => {
+export const GoogleAPI = (inputText: any, setAftTranGoogle: any) : void => {
 
   const API_Key_G = process.env.NEXT_PUBLIC_GoogleTranslation_API_KEY;
   const API_URL_G = "https://translate.googleapis.com/language/translate/v2";
@@ -11,7 +11,7 @@ export const GoogleAPI = (e : { target: { value: string; }; }, setAftTranGoogle:
         "key=" +
         API_Key_G +
         "&q=" +
-        e.target.value +
+        inputText +
         "&cheese&target=EN"
   );
 
@@ -23,7 +23,7 @@ export const GoogleAPI = (e : { target: { value: string; }; }, setAftTranGoogle:
       return response.json();
     } else {
       throw new Error(
-        `Could not reach the API:${API_Key_G} `+ response.statusText
+        `Could not reach the API:${API_Key_G}`+ response.statusText
       );
     }
   })
