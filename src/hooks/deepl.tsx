@@ -1,11 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from 'next'
 
-export  const DeepLAPI = (inputText: any, setAftTranDeepl: any) : void => {
+export  const DeepLAPI = async (inputText: any, setAftTranDeepl: any) : Promise<void> => {
 
   console.log("--------");
   console.log(inputText.target.value);
   console.log("--------");
-
 
   const API_Key = process.env.NEXT_PUBLIC_DeepL_API_KEY;
   const API_URL = "https://api-free.deepl.com/v2/translate";
@@ -20,8 +19,8 @@ export  const DeepLAPI = (inputText: any, setAftTranDeepl: any) : void => {
 
   let url = API_URL + "?" + content;
 
-  fetch(url)
-  .then(function (response) {
+  await fetch(url)
+  .then(response => {
     if (response.ok) {
       return response.json();
     } else {
@@ -30,7 +29,7 @@ export  const DeepLAPI = (inputText: any, setAftTranDeepl: any) : void => {
       );
     }
   })
-  .then(function (data) {
+  .then((data) => {
     let tran = data["translations"][0]["text"];
       setAftTranDeepl(tran);
   })
