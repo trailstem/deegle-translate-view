@@ -3,14 +3,14 @@ import Head from 'next/head'
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faCopy, faThumbsUp} from "@fortawesome/free-regular-svg-icons";
 import {useState, useCallback} from 'react';
-import UserTranslationText from '../components/UserTranslationText';
-import Header from '../components/Header';
-import LanguageSwichingTab from '../components/LanguageSwichingTab';
-import Footer from '../components/Footer';
-import GoodTotalGoogleAndDeepl from '../components/GoodTotalGoogleAndDeepl';
+import UserTranslationText from '../components/atoms/UserTranslationText';
+import Header from '../components/organisms/Header';
+import LanguageSwichingTab from '../components/atoms/LanguageSwichingTab';
+import Footer from '../components/organisms/Footer';
+import GoodTotalGoogleAndDeepl from '../components/organisms/GoodTotalGoogleAndDeepl';
 
-import GoogleAPI from './api/google';
-import DeepLAPI from './api/deepl';
+import GoogleAPI from '../hooks/google';
+import DeepLAPI from '../hooks/deepl';
 
 export const home: NextPage = () => {
 
