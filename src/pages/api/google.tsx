@@ -1,17 +1,15 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
-import axios from "axios"
-
 export const GoogleAPI = (inputText: any, setAftTranGoogle: any) : void => {
+
+  // console.log(inputText);
 
   const API_Key_G = process.env.NEXT_PUBLIC_GoogleTranslation_API_KEY;
   const API_URL_G = "https://translate.googleapis.com/language/translate/v2";
 
   let content_G = encodeURI(
-
         "key=" +
         API_Key_G +
         "&q=" +
-        inputText +
+        inputText.target.value +
         "&cheese&target=EN"
   );
 
@@ -29,6 +27,7 @@ export const GoogleAPI = (inputText: any, setAftTranGoogle: any) : void => {
   })
     .then(function (data) {
       let tran = data["data"]["translations"][0]["translatedText"];
+      // console.log(tran);
         setAftTranGoogle(tran);
     })
 };
