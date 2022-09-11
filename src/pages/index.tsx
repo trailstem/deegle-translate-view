@@ -8,8 +8,7 @@ import Header from './components/Header';
 import LanguageSwichingTab from './components/LanguageSwichingTab';
 import Footer from './components/Footer';
 import GoodTotalGoogleAndDeepl from './components/GoodTotalGoogleAndDeepl';
-import GoogleThumbUp from './components/GoogleThumbUp';
-import GoogleTextCopy from './components/GoogleTextCopy';
+
 import GoogleAPI from './api/google';
 import DeepLAPI from './api/deepl';
 
@@ -19,8 +18,8 @@ console.log("レンダリングされました")
 
   // state初期値(入力用)
   const initialValue : string = "";
-  // 利用者がしたいテキストの値
-  const [inputText, userText] = useState<any>(initialValue);
+  // 利用者が翻訳したいテキストの値
+  const [inputText, setInputText] = useState<any>(initialValue);
   // 利用者がGoogle翻訳を使用して変換した後の値
   const [aftTranGoogle, setAftTranGoogle] = useState<any>(initialValue);
   // 利用者がDeepl翻訳を使用して変換した後の値
@@ -56,7 +55,7 @@ console.log("レンダリングされました")
             <GoodTotalGoogleAndDeepl/>
               <LanguageSwichingTab/>
                 <div className='justify-center'>
-                  <UserTranslationText googleText = {inputText} translate = {translate}/>
+                  <UserTranslationText googleText = {inputText} translate = {translate} setInputText={setInputText}/>
                 </div>
                 <div>
                   <div className='mt-12 justify-center'>
