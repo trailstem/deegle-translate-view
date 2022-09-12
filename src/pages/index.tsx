@@ -31,16 +31,6 @@ console.log("レンダリングされました")
     DeepLAPI(e, setAftTranDeepl)
 };
   
-  // Googleのいいね機能
-  const goodGoogle = useCallback(() => {
-    console.log('Google翻訳を高く評価しました。');
-  },[]);
-
-  // deeplのいいね機能
-  const goodDeepl = useCallback(() => {
-    console.log('DeepLを高く評価しました。');
-  },[]);
-
   return (
     <div className="flex-container justify-center">
       <Head>
@@ -70,14 +60,14 @@ console.log("レンダリングされました")
                   <div className='flex justify-center items-center '>
                     <button className='w-1/3 mx-8' disabled>
                       <div className="fa-2x"><p className="text-blue-500">Google</p>
-                      <FontAwesomeIcon icon={faThumbsUp} className=" hover:text-blue-500 transision-all duration-300 cursor-pointer mr-3" color=''/>
+                      <FontAwesomeIcon icon={faThumbsUp} className=" hover:text-blue-500 transision-all duration-300 cursor-pointer mr-3"/>
                       <FontAwesomeIcon icon={faCopy} />
                       </div>
                     </button>
 
                     <button className='w-1/3 mx-8' disabled>
                       <div className="fa-2x" > <p  className="text-green-500">DeepL</p>
-                        <FontAwesomeIcon icon={faThumbsUp} className="fas fa-seedling hover:text-green-500 transision-all duration-300 cursor-pointer mr-3" color='' onClick={goodDeepl}/>
+                        <FontAwesomeIcon icon={faThumbsUp} className="fas fa-seedling hover:text-green-500 transision-all duration-300 cursor-pointer mr-3"/>
                         <FontAwesomeIcon icon={faCopy} />
                       </div>
                     </button>
