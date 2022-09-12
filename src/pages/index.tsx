@@ -9,8 +9,8 @@ import LanguageSwichingTab from '../components/atoms/LanguageSwichingTab';
 import Footer from '../components/organisms/Footer';
 import GoodTotalGoogleAndDeepl from '../components/organisms/GoodTotalGoogleAndDeepl';
 
-import GoogleAPI from '../hooks/google';
-import DeepLAPI from '../hooks/deepl';
+import GoogleAPI from '../hooks/useGoogleAPI';
+import DeepLAPI from '../hooks/useDeepLAPI';
 
 export const home: NextPage = () => {
 
