@@ -1,17 +1,11 @@
-import React from 'react';
-import { memo } from "react"
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { memo } from "react";
 import {faCopy} from "@fortawesome/free-regular-svg-icons";
 
-
-const GoogleTextCopy = memo((props): JSX.Element => {
-
-const {} = props;
-
+export const TextCopyIcon = memo((props: any) => {
+  const {} = props;
   const copyToClipboard = () => {
-
   }
-  
   return (
     <>
       <div>
@@ -20,5 +14,3 @@ const {} = props;
     </>
   );
 })
-
-export default GoogleTextCopy
