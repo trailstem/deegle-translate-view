@@ -2,16 +2,9 @@ import { memo } from "react"
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {faCopy, faThumbsUp} from "@fortawesome/free-regular-svg-icons";
-import { useState } from 'react';
-import UserTranslationText from '../components/atoms/InputTextArea';
 import LanguageSwichingTab from '../components/atoms/LanguageSwichingTab';
 import Footer from '../components/organisms/layout/Footer';
 import GoodTotalGoogleAndDeepl from '../components/organisms/GoodTotalGoogleAndDeepl';
-
-import GoogleAPI from '../hooks/useGoogleAPI';
-import DeepLAPI from '../hooks/useDeepLAPI';
-import { TextTranslatedWithGoogle } from '../components/atoms/TextTranslatedWithGoogle';
-import { TextTranslatedWithDeepL } from '../components/atoms/TextTranslatedWithDeepL';
 import Header from "../components/organisms/layout/Header";
 import { TranslatedTextArea } from "../components/molucules/TranslatedTextArea";
 
