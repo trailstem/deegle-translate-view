@@ -13,8 +13,7 @@ export const  GoogleAPI = async(text: string) => {
     API_Key_G +
     "&q=" +
     text +
-    // "&cheese&target=EN"
-    "&cheese&target=JA"
+    "&cheese&target=EN"
 );
 
 let googleURL = API_URL_G + "?" + content_G;
