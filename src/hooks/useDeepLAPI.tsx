@@ -10,8 +10,7 @@ export  const DeepLAPI = async(text: string) => {
       API_Key +
       "&text=" +
       text +
-      "&source_lang=EN&target_lang=JA"
-      // "&source_lang=JA&target_lang=EN"
+      "&source_lang=JA&target_lang=EN"
   );
   let url = API_URL + "?" + content;
 

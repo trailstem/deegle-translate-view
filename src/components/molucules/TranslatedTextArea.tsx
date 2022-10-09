@@ -6,17 +6,16 @@ import InputTextArea from "../atoms/InputTextArea";
 import OutputTextArea from "../atoms/OutputTextArea";
 
 export const TranslatedTextArea = (props: any) => {
-      //ユーザの入力値
-      const [inputText, setUserInputText] = useState<string>("");
 
-      // const inputText = useRef<string>(null);
+      //ユーザの入力値
+      const inputText = useRef<string>(null);
       const [googleText, setGoogleText] = useState<string>("");
 
       const [deepLText, setDeepLText] = useState<string>("");
       
       const translate = useCallback((e: any) => {
         setTimeout(async () => {
-          setUserInputText(e);
+          // setUserInputText(e);
           const gText = await GoogleAPI(e);
           const dText = await DeepLAPI(e);
           setGoogleText(gText);
@@ -27,7 +26,7 @@ export const TranslatedTextArea = (props: any) => {
 
   return (
     <>
-      <div className="flex justify-center text-center px-4 py-6 m-2  boder-2 rounded-md">
+      <div className="">
       <InputTextArea inputText={inputText} translate={translate}/>
       </div>
       <OutputTextArea translatedText={googleText} color="blue"/>

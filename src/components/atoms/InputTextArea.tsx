@@ -1,9 +1,12 @@
+import { Textarea } from '@material-tailwind/react';
 import React from 'react';
 
 export const InputTextArea = (props: any): JSX.Element => {
     const {ref, translate} = props;
   return (  
-      <textarea defaultValue={ref} onChange={(e) => translate(e.target.value)} className='outline-none sm:w-1/3 w-full h-28 sm:h-56  md:h-56 border-2 rounded-lg'/>
+      <Textarea defaultValue={ref} onChange={(e) => translate(e.target.value)}
+      variant="standard" color="purple" label="翻訳したいテキストを入力してください" />
+    
   )
 };
 

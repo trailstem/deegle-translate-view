@@ -1,18 +1,39 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { memo } from "react"
 
+import { Select, Option } from "@material-tailwind/react";
+
 const LanguageSwichingTab = memo((): JSX.Element => {
+
+  // 規模が小さいことを想定し、日本語と英語のみ対応するため固定値
+  // const data = [
+  //   {
+  //     label: "Japanese",
+  //     value: "JA",
+  //   },
+  //   {
+  //     label: "English",
+  //     value: "EN",
+  //   },
+  // ];
+
+  // //不要なレンダリングが発生しないようにuseRef使用
+  // const languageData = useRef(data);
+  // const changeTab = (e: any) => {
+  //   // if (e.dataset.value === "EN") {
+  //   //   e.data_value == "JA";
+  //   // }
+  //   console.log("changeTab", e.dataset.value);
+  // }
+
   return (
-  <ul className="text-sm font-medium text-center text-gray-500 dark:text-gray-400 pb-5">
-    <div className="flex justify-center">
-      <li className="mr-2 px-4">
-        <button className="inline-block py-3 px-4 text-white bg-blue-600 rounded-lg active">Japanese</button>
-      </li>
-      <li className="px-4">
-        <button className="inline-block py-3 px-4 text-white bg-blue-600 rounded-lg active">English</button>
-      </li>
+    <div className="flex w-full items-end gap-4">
+      <Select variant="standard" label="">
+        <Option>{null}</Option>
+        <Option value="JA">日本語</Option>
+        <Option value="EN">英語</Option>
+      </Select>
     </div>
-  </ul>
   );
 })
 

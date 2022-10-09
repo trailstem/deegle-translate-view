@@ -5,6 +5,7 @@ import { faThumbsUp } from "@fortawesome/free-regular-svg-icons";
 export const ThumbsUpIcon = memo(() => {
   return (
     <div>
+
         <FontAwesomeIcon icon={faThumbsUp} className=""/>
     </div>
   )
