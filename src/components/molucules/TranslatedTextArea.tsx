@@ -15,12 +15,10 @@ export const TranslatedTextArea = (props: any) => {
       
       const translate = useCallback((e: any) => {
         setTimeout(async () => {
-          // setUserInputText(e);
           const gText = await GoogleAPI(e);
           const dText = await DeepLAPI(e);
           setGoogleText(gText);
           setDeepLText(dText);
-          // alert("翻訳完了しました");
         }, 800)
       }, [inputText]);
 
