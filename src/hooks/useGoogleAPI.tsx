@@ -1,25 +1,37 @@
-import { useEffect } from "react";
-import { transpile } from "typescript";
-
-
-//テキストを受け取り、GoogleAPIで翻訳する関数
-export const  GoogleAPI = async(text: string) => {
-
-  const API_Key_G = process.env.NEXT_PUBLIC_GoogleTranslation_API_KEY;
-  const API_URL_G = "https://translate.googleapis.com/language/translate/v2";
-
-  let content_G = encodeURI(
-    "key=" +
-    API_Key_G +
-    "&q=" +
-    text +
-    "&cheese&target=EN"
-);
-
-let googleURL = API_URL_G + "?" + content_G;
-  const data = await fetch(googleURL).then(response => { return response.json();});
-  let tran: string = data["data"]["translations"][0]["translatedText"];
-  return tran;
+//Google翻訳用変換後の型を定義
+export interface gConversionType {
+  data : {
+    translations: [{
+      text: {
+        text2 : string
+      }
+    }]
+  },
 }
 
-export default GoogleAPI
+export const GoogleAPI = async (text: string) :Promise<gConversionType>  => {
+  const API_Key_G = process.env.NEXT_PUBLIC_GoogleTranslation_API_KEY;
+  const API_URL_G = process.env.NEXT_PUBLIC_GoogleTranslation_API_URL;
+
+  // 翻訳
+  const URL =
+    API_URL_G +
+    "?key=" +
+    API_Key_G +
+    "&q=" +
+    encodeURI(text) +
+    "&source=" +
+    "JA" +
+    "&target=" +
+    "EN";
+
+  const result = await fetch(URL).then((response) => {
+    return response.json();
+  });
+  console.log(result);
+
+  let transData: gConversionType = 
+      result["data"]["translations"][0]["translatedText"];
+  return transData;
+};
+export default GoogleAPI;
