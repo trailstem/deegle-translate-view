@@ -8,7 +8,7 @@ export const OutputTextArea = memo((props: any) => {
   return (
     <>
     <div className={`border-${color}-500`}>
-        <Textarea value={translatedText} disabled />
+        <Textarea  className="md:h-64" value={translatedText} readOnly/>
     </div>
     </>
   );
