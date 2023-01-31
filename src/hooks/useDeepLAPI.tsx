@@ -1,10 +1,17 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
-
+//deepL用翻訳変換後の型を定義
+export interface dConversionType {
+  translations: [{
+    text: {
+      text2 : string
+    }
+  }],
+}
 //テキストを受け取り、DeepLAPIで翻訳する関数
-export  const DeepLAPI = async(text: string) => {
+export  const DeepLAPI = async(text: string) :Promise<dConversionType>=> {
 
   const API_Key = process.env.NEXT_PUBLIC_DeepL_API_KEY;
-  const API_URL = "https://api-free.deepl.com/v2/translate";
+  const API_URL = process.env.NEXT_PUBLIC_DeepL_API_URL;
+  
   let content = encodeURI(
     "auth_key=" +
       API_Key +
@@ -14,8 +21,8 @@ export  const DeepLAPI = async(text: string) => {
   );
   let url = API_URL + "?" + content;
 
-    const data = await fetch(url).then(response => {  return response.json(); });
-    let tran: string = data["translations"][0]["text"];
-    return tran;
+    const result = await fetch(url).then(response => {  return response.json(); });
+    let transData: dConversionType = result["translations"][0]["text"];
+    return transData;
 }
 export default DeepLAPI
