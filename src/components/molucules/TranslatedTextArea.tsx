@@ -36,10 +36,10 @@ export const TranslatedTextArea = (props: any) => {
 
       <div className="sm:flex justify-center">
         <div className="md:w-2/6 mx-20 my-2"> 
-          <OutputTextArea translatedText={googleText} color="blue"/>
+          <OutputTextArea translatedText={googleText} color="blue" transType="Google翻訳"/>
         </div>
         <div className="md:w-2/6 mx-20 my-2">
-          <OutputTextArea translatedText={deepLText} color="yellow"/>
+          <OutputTextArea translatedText={deepLText} color="yellow" transType="DeepL"/>
         </div>
       </div>
     </>

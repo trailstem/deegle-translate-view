@@ -6,7 +6,7 @@ import { TranslatedTextArea } from "../components/molucules/TranslatedTextArea";
 import { SwichLanguageArea } from "../components/molucules/SwitchLanguageArea";
 import { DefaultDialg } from "../components/atoms/DefaultDialog";
 
-export const Home = memo(() => {
+export const home = memo(() => {
   return (
     <>
       <div className="overflow-auto">
@@ -24,4 +24,4 @@ export const Home = memo(() => {
     </>
   );
 });
-export default Home;
+export default home;
