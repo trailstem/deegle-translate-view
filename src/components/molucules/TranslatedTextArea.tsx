@@ -23,7 +23,7 @@ export const TranslatedTextArea = (props: any) => {
           const dText = await DeepLAPI(e);
           setGoogleText(gText);
           setDeepLText(dText);
-        }, 800)
+        }, 1)
       }, [inputText]);
 
   return (
@@ -36,10 +36,14 @@ export const TranslatedTextArea = (props: any) => {
 
       <div className="sm:flex justify-center">
         <div className="md:w-2/6 mx-20 my-2"> 
-          <OutputTextArea translatedText={googleText} color="blue"/>
+          <OutputTextArea
+          transTool={"Google翻訳"} 
+          translatedText={googleText} color="blue"/>
         </div>
         <div className="md:w-2/6 mx-20 my-2">
-          <OutputTextArea translatedText={deepLText} color="yellow"/>
+          <OutputTextArea
+          transTool={"DeepL"} 
+          translatedText={deepLText} color="yellow"/>
         </div>
       </div>
     </>

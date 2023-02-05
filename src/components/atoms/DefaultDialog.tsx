@@ -28,7 +28,7 @@ export  const DefaultDialg = memo(() =>{
     .then(res => res.json())
     .then((data) => {
       console.log(data.message);
-      setTest(data.message)
+      alert(data.message)
     }).catch ((err) => {
       setTest(err)
     })
@@ -49,11 +49,11 @@ export  const DefaultDialg = memo(() =>{
       >
         <DialogHeader>Its a simple dialog.</DialogHeader>
         <DialogBody divider>
-          {test}
+          {/* {test} */}
         </DialogBody>
         <DialogFooter>
           <Button variant="gradient" color="green" onClick={handleOpen}>
-            <span>{test}</span>
+            {/* <span>{test}</span> */}
           </Button>
         </DialogFooter>
       </Dialog>
