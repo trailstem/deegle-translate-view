@@ -2,7 +2,7 @@ import React, { useCallback, useRef }  from "react";
 import { useState } from "react";
 import DeepLAPI, { dConversionType } from "../../hooks/useDeepLAPI";
 import GoogleAPI, {gConversionType} from "../../hooks/useGoogleAPI";
-import { HeartButton } from "../atoms/HeartButton";
+import { HeartButton } from "../atoms/LikeButton";
 import InputTextArea from "../atoms/InputTextArea";
 import OutputTextArea from "../atoms/OutputTextArea";
 
