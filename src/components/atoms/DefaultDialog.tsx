@@ -1,4 +1,4 @@
-import { Fragment, memo, useState } from "react";
+import { memo, useState } from "react";
 import {
   Button,
   Dialog,
@@ -7,11 +7,15 @@ import {
   DialogFooter,
 } from "@material-tailwind/react";
 
-export  const DefaultDialg = memo(() =>{
+import { ThumbsUpIcon } from "./ThumbUpIcon";
+
+export  const DefaultDialg = memo((props:any) =>{
+
+  const {transType} = props;
 
   const [open, setOpen] = useState(false);
 
-  const [test,setTest] = useState([]);
+  const [test,setTest] = useState("");
 
   const handleOpen = () => {
 
@@ -27,8 +31,8 @@ export  const DefaultDialg = memo(() =>{
     fetch(`http://localhost:8080/test`, requestOptions)
     .then(res => res.json())
     .then((data) => {
-      console.log(data.message);
-      setTest(data.message)
+      console.log(data);
+      setTest(data.likeCount)
     }).catch ((err) => {
       setTest(err)
     })
@@ -37,7 +41,7 @@ export  const DefaultDialg = memo(() =>{
   return (
     <>
       <Button onClick={handleOpen} variant="gradient">
-        Open Dialog
+      <ThumbsUpIcon/>
       </Button>
       <Dialog
         open={open}
@@ -47,13 +51,13 @@ export  const DefaultDialg = memo(() =>{
           unmount: { scale: 0.9, y: -100 },
         }}
       >
-        <DialogHeader>Its a simple dialog.</DialogHeader>
+        <DialogHeader>いいねありがとうございます😁</DialogHeader>
         <DialogBody divider>
-          {test}
+          {transType}のいいね数は:{test}です
         </DialogBody>
         <DialogFooter>
           <Button variant="gradient" color="green" onClick={handleOpen}>
-            <span>{test}</span>
+            <span>戻る</span>
           </Button>
         </DialogFooter>
       </Dialog>
