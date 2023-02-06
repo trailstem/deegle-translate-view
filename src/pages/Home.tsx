@@ -5,6 +5,7 @@ import Header from "../components/organisms/layout/Header";
 import { TranslatedTextArea } from "../components/molucules/TranslatedTextArea";
 import { SwichLanguageArea } from "../components/molucules/SwitchLanguageArea";
 import { DefaultDialg } from "../components/atoms/DefaultDialog";
+import { HeartButton } from "../components/atoms/LikeButton";
 
 export const home = memo(() => {
   return (
@@ -17,7 +18,8 @@ export const home = memo(() => {
         <TranslatedTextArea />
 
         <div className="flex justify-center my-5">
-          <DefaultDialg />
+          <DefaultDialg transType="Google翻訳"/>
+          <DefaultDialg transType="DeepL"/>
         </div>
         <Footer />
       </div>
