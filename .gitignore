@@ -40,3 +40,4 @@ yarn-error.log*
 # VSCodeの設定
 .vscode/.env
 .env
+.env
