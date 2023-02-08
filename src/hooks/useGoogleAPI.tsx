@@ -1,19 +1,24 @@
 //Google翻訳用変換後の型を定義
 export interface gConversionType {
-  data : {
-    translations: [{
-      text: {
-        text2 : string
+  data: {
+    translations: [
+      {
+        text: {
+          text2: string;
+        };
       }
-    }]
-  },
+    ];
+  };
 }
 
-export const GoogleAPI = async (text: string) :Promise<gConversionType>  => {
+export const GoogleAPI = async (
+  text: string,
+  fromLang: string,
+  toLang: string
+): Promise<gConversionType> => {
   const API_Key_G = process.env.NEXT_PUBLIC_GoogleTranslation_API_KEY;
   const API_URL_G = process.env.NEXT_PUBLIC_GoogleTranslation_API_URL;
 
-  // 翻訳
   const URL =
     API_URL_G +
     "?key=" +
@@ -24,14 +29,12 @@ export const GoogleAPI = async (text: string) :Promise<gConversionType>  => {
     "JA" +
     "&target=" +
     "EN";
-
   const result = await fetch(URL).then((response) => {
     return response.json();
   });
-  console.log(result);
 
-  let transData: gConversionType = 
-      result["data"]["translations"][0]["translatedText"];
+  let transData: gConversionType =
+    result["data"]["translations"][0]["translatedText"];
   return transData;
 };
 export default GoogleAPI;

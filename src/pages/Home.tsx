@@ -1,26 +1,38 @@
-import { memo } from "react";
+import { createContext, memo, useState } from "react";
 
 import Footer from "../components/organisms/layout/Footer";
 import Header from "../components/organisms/layout/Header";
 import { TranslatedTextArea } from "../components/molucules/TranslatedTextArea";
 import { SwichLanguageArea } from "../components/molucules/SwitchLanguageArea";
-import { DefaultDialg } from "../components/atoms/DefaultDialog";
-import { HeartButton } from "../components/atoms/LikeButton";
+
+type ThemeContextType = any;
+export const FromToContext = createContext<ThemeContextType>({});
 
 export const home = memo(() => {
+  const [fromLang, setFromLang] = useState([]);
+  const [toLang, setToLang] = useState([]);
+
+  const state = {
+    fromLang,
+    setFromLang,
+    toLang,
+    setToLang,
+  };
+
   return (
     <>
       <div className="overflow-auto">
         <Header />
-        <div className="flex justify-center my-5">
-          <SwichLanguageArea />
-        </div>
-        <TranslatedTextArea />
 
-        <div className="flex justify-center my-5">
-          <DefaultDialg transType="Google翻訳"/>
-          <DefaultDialg transType="DeepL"/>
-        </div>
+        <FromToContext.Provider
+          value={state}
+        >
+          <div className="flex justify-center my-5">
+            <SwichLanguageArea />
+          </div>
+          <TranslatedTextArea />
+        </FromToContext.Provider>
+
         <Footer />
       </div>
     </>
