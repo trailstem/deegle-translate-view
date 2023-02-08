@@ -38,4 +38,5 @@ yarn-error.log*
 /.idea
 
 # VSCodeの設定
-.vscode/
+.vscode/.env
+.env
