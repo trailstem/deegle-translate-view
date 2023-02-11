@@ -8,7 +8,7 @@ import { SwichLanguageArea } from "../components/molucules/SwitchLanguageArea";
 type ThemeContextType = any;
 export const FromToContext = createContext<ThemeContextType>({});
 
-export const home = memo(() => {
+export const Home = memo(() => {
   const [fromLang, setFromLang] = useState([]);
   const [toLang, setToLang] = useState([]);
 
@@ -38,4 +38,4 @@ export const home = memo(() => {
     </>
   );
 });
-export default home;
+export default Home;
