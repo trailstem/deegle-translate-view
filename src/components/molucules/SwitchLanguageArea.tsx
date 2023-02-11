@@ -2,7 +2,7 @@ import { memo, useContext } from "react";
 import LanguageSwichingTab from "../atoms/LanguageSwichingTab";
 import { ArrowsRightLeftIcon } from "@heroicons/react/24/solid";
 
-import { FromToContext } from "../../pages/home";
+import { FromToContext } from "../../pages/home"
 
 export const SwichLanguageArea = memo((props: any): JSX.Element => {
   const context = useContext(FromToContext);
