@@ -12,10 +12,7 @@ export interface gConversionType {
 }
 
 export const GoogleAPI = async (
-  text: string,
-  fromLang: string,
-  toLang: string
-): Promise<gConversionType> => {
+  text: string): Promise<gConversionType> => {
   const API_Key_G = process.env.NEXT_PUBLIC_GoogleTranslation_API_KEY;
   const API_URL_G = process.env.NEXT_PUBLIC_GoogleTranslation_API_URL;
 

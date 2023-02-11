@@ -10,8 +10,8 @@ import { FromToContext } from "../../pages/home";
 export const TranslatedTextArea = (props: any) => {
   // //ユーザの入力値
   // let inputText = useRef<string>(null);
-    //ユーザの入力値
-    const [inputText, setInputText] = useState<string>("");
+  //ユーザの入力値
+  const [inputText, setInputText] = useState<string>("");
   //Google翻訳後に使用するテキスト
   const [googleText, setGoogleText] = useState<gConversionType>();
   //deepL翻訳後に使用するテキスト
@@ -24,9 +24,8 @@ export const TranslatedTextArea = (props: any) => {
   const translate = useCallback(
     (e: any) => {
       setTimeout(async () => {
-        console.log(`重要！！！！！！！！！！${fromLang} ${toLang}`);
-        const gText = await GoogleAPI(e, fromLang, toLang);
-        const dText = await DeepLAPI(e, fromLang, toLang);
+        const gText = await GoogleAPI(e);
+        const dText = await DeepLAPI(e);
         setGoogleText(gText);
         setDeepLText(dText);
       });
