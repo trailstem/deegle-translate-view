@@ -18,7 +18,6 @@ export const GoogleAPI = async (
       return response.json();
     }
   );
-  console.log(result);
   let transData: gConversionType =
     result["reqGTxt"]["data"]["translations"][0]["translatedText"];
   return transData;
