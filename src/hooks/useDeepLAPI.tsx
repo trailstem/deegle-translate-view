@@ -10,18 +10,11 @@ export interface dConversionType {
 }
 //テキストを受け取り、DeepLAPIで翻訳する関数
 export const DeepLAPI = async (text: string): Promise<dConversionType> => {
-  const API_Key = process.env.NEXT_PUBLIC_DeepL_API_KEY;
-  const API_URL = process.env.NEXT_PUBLIC_DeepL_API_URL;
-
-  let content = encodeURI(
-    "auth_key=" + API_Key + "&text=" + text + "&source_lang=JA&target_lang=EN"
-  );
-  let url = API_URL + "?" + content;
-
-  const result = await fetch(url).then((response) => {
+  const result = await fetch(`http://localhost:8080/deepL_translate?source=${text}`).then((response) => {
     return response.json();
   });
-  let transData: dConversionType = result["translations"][0]["text"];
+  console.log(result);
+  let transData: dConversionType = result["reqDTxt"]["translations"][0]["text"];
   return transData;
 };
 export default DeepLAPI;

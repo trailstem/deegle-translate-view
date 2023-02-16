@@ -12,26 +12,15 @@ export interface gConversionType {
 }
 
 export const GoogleAPI = async (
-  text: string): Promise<gConversionType> => {
-  const API_Key_G = process.env.NEXT_PUBLIC_GoogleTranslation_API_KEY;
-  const API_URL_G = process.env.NEXT_PUBLIC_GoogleTranslation_API_URL;
-
-  const URL =
-    API_URL_G +
-    "?key=" +
-    API_Key_G +
-    "&q=" +
-    encodeURI(text) +
-    "&source=" +
-    "JA" +
-    "&target=" +
-    "EN";
-  const result = await fetch(URL).then((response) => {
-    return response.json();
-  });
-
+  text: string): Promise<gConversionType> => {  
+  const result = await fetch(`http://localhost:8080/google_translate?source=${text}`).then(
+    (response) => {
+      return response.json();
+    }
+  );
+  console.log(result);
   let transData: gConversionType =
-    result["data"]["translations"][0]["translatedText"];
+    result["reqGTxt"]["data"]["translations"][0]["translatedText"];
   return transData;
 };
 export default GoogleAPI;
