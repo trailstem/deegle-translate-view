@@ -39,3 +39,4 @@ yarn-error.log*
 
 # VSCodeの設定
 .vscode/
+src/pages/api/hello.tsx
