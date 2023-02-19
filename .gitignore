@@ -38,4 +38,7 @@ yarn-error.log*
 /.idea
 
 # VSCodeの設定
-.vscode/
+.vscode/.env
+.env
+.env
+src/pages/api/hello.tsx
